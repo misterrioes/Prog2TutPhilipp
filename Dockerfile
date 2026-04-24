@@ -1,7 +1,7 @@
 FROM jupyter/base-notebook
 
 USER root
-
+RUN echo "USING CUSTOM DOCKERFILE"
 # Install Java (wichtig für Scala)
 RUN apt-get update && apt-get install -y openjdk-11-jdk
 
