@@ -17,5 +17,6 @@ RUN curl -Lo coursier https://git.io/coursier-cli && chmod +x coursier
 # Install Almond (Scala kernel)
 RUN ./coursier launch almond --scala 2.13 -- --install
 
+COPY . /home/jovyan/work
 # Clean up
 RUN rm coursier
