@@ -1,0 +1,17 @@
+FROM jupyter/base-notebook
+
+USER root
+
+# Install Java (wichtig für Scala)
+RUN apt-get update && apt-get install -y openjdk-11-jdk
+
+USER $NB_UID
+
+# Install coursier (Scala installer)
+RUN curl -Lo coursier https://git.io/coursier-cli && chmod +x coursier
+
+# Install Almond (Scala kernel)
+RUN ./coursier launch almond --scala 2.13 -- --install
+
+# Clean up
+RUN rm coursier
