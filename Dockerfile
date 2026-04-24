@@ -15,7 +15,7 @@ USER $NB_UID
 RUN curl -Lo coursier https://git.io/coursier-cli && chmod +x coursier
 
 # Install Almond (Scala kernel)
-RUN ./coursier launch almond --scala 2.13 -- --install
+RUN ./coursier launch almond --scala 3.3.1 -- --install
 
 COPY ./notebooks /home/jovyan/work
 # Clean up
